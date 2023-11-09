@@ -1,0 +1,78 @@
+body {
+  background: linear-gradient(
+    235deg,
+    rgba(135, 196, 255) 15%,
+    rgba(224, 244, 255, 0.28) 85%
+  );
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "Inter", sans-serif !important;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.btn-primary {
+  background: rgba(255, 255, 255, 0.36);
+  border: 0.5px solid #303345;
+  border-radius: 10px;
+  padding: 8px 11px;
+  color: #303345;
+  text-align: center;
+  width: 100%;
+}
+.btn-primary:hover {
+  background-color: #39a7ff;
+  border: 0.5px solid #39a7ff;
+  color: 303345;
+}
+
+.btn-primary.current {
+  background-color: #303345;
+  color: white;
+}
+
+input.btn-primary {
+  width: 100%;
+  color: white;
+  background-color: #303345;
+  border: 0.5px solid #303345;
+}
+
+input.placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  padding: 8px 11px;
+  border: 0.5px solid #303345;
+  border-radius: 10px;
+  color: #303345;
+  cursor: auto;
+}
+
+input::placeholder {
+  color: #303345;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+.d-flex {
+  align-items: center;
+}
+
+.App footer {
+  font-size: 13px;
+  text-align: center;
+  padding: 20px;
+}
+
+.App footer a.links {
+  color: #303345;
+  text-decoration: none;
+}
+
+.App footer .links:hover {
+  color: #39a7ff !important;
+  font-weight: 600;
+}

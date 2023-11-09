@@ -1,0 +1,101 @@
+.weather {
+  background-color: rgb(255 255 255 / 30%);
+  padding: 50px;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 60px auto;
+}
+
+.weather h1 {
+  font-weight: 500 !important;
+  font-size: 28px !important;
+  line-height: 24px !important;
+  color: #313341 !important;
+}
+
+.weather #condition {
+  text-transform: capitalize;
+}
+
+.weather #date {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 17px;
+  color: #303345;
+}
+
+.weather #temperature {
+  font-weight: 700;
+  font-size: 80px;
+  line-height: 60px;
+  color: #303345;
+}
+
+.weather .current-temp {
+  padding: 20px 0;
+}
+
+.weather .col-holder {
+  background: rgba(255, 255, 255, 0.36);
+  border-radius: 10px;
+  padding: 10px;
+  font-weight: 400;
+  font-size: 16px;
+  color: #303345;
+  margin-bottom: 5px;
+}
+
+.weather .degree {
+  position: relative;
+}
+
+.weather .units {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.weather .units a {
+  text-decoration: none;
+  color: #303345;
+  &.active {
+    font-weight: 700;
+  }
+}
+.weather .current-weather {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 24px;
+  gap: 20px;
+}
+
+.weather .current-icon {
+  font-weight: 700;
+  font-size: 85px;
+  line-height: 52px;
+  color: #fbca1c;
+  padding: 0;
+}
+
+.block {
+  background: rgba(255, 255, 255, 0.36);
+  border: 0.5px solid rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  padding: 8px 11px;
+}
+
+.row {
+  justify-content: space-between;
+}
+
+.units {
+  text-decoration: none;
+  color: #303345;
+  font-weight: 700;
+}
+
+.units a {
+  font-weight: 500;
+}
