@@ -1,65 +1,73 @@
-import React from "react";
+import React, { useState } from "react";
+import CurrentWeather from "./CurrentWeather";
 import axios from "axios";
 import "./Weather.css";
 
-export default function Weather() {
-  return (
-    <div className="weather">
-      <form id="search-form">
-        <div className="row mobile">
-          <div className="col-md-8">
-            <input
-              className="placeholder"
-              type="text"
-              id="city-input"
-              autocomplete="off"
-              placeholder="Type a city"
-            />
-          </div>
-          <div className="col-md-4">
-            <input
-              className="btn-primary col-md-2 submit"
-              type="submit"
-              value="Search"
-            />
-          </div>
-        </div>
-      </form>
+export default function Weather(props) {
+  const [weather, setWeather] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
 
-      <div className="current-temp">
-        <h1 id="city">Montreal</h1>
-        <p class="description">
-          <span id="date"></span>
-          <br />
-          <span id="condition"></span>
-        </p>
-        <div className="row">
-          <div className="col-6">
-            <div className="d-flex weather-temperature">
-              <img src="" alt="" id="icon" />
-              <div className="degree">
-                <strong id="temperature">13</strong>
-                <span className="units">°C | °F</span>
-              </div>
+  function handleResponse(response) {
+    console.log(response.data);
+    setWeather({
+      ready: true,
+      city: response.data.city,
+      date: new Date(response.data.time * 1000),
+      temperature: response.data.temperature.current,
+      wind: response.data.wind.speed,
+      humidity: response.data.temperature.humidity,
+      feels_like: response.data.temperature.feels_like,
+      condition: response.data.condition.description,
+      icon_url: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`,
+      description: response.data.condition.description,
+      icon: response.data.condition.icon,
+    });
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
+
+  function search() {
+    const apiKey = "1fabbbt6e694149ea2da3obbe200ebf2";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  if (weather.ready) {
+    return (
+      <div className="weather">
+        <form onSubmit={handleSubmit}>
+          <div className="row mobile">
+            <div className="col-md-8">
+              <input
+                className="placeholder"
+                type="search"
+                id="city-input"
+                autoFocus="on"
+                placeholder="Type a city"
+                onChange={handleCityChange}
+              />
+            </div>
+            <div className="col-md-4">
+              <input
+                className="btn-primary col-md-2 submit"
+                type="submit"
+                value="Search"
+              />
             </div>
           </div>
-          <div className="col-6">
-            <div className="details">
-              <ul>
-                <li className="col-holder">
-                  Humidity: <span id="humidity">12</span>%
-                </li>
-                <li className="col-holder">
-                  Wind: <span id="wind"></span>12 km/h
-                </li>
-                <li className="col-holder">
-                  Feels like: <span id="feels">12</span> °C
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        </form>
+        <CurrentWeather data={weather} />
       </div>
-    </div>
-  );
+    );
+  } else {
+    search();
+    return "Loading...";
+  }
 }
