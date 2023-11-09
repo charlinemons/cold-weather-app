@@ -23,7 +23,7 @@ body {
 .btn-primary:hover {
   background-color: #39a7ff;
   border: 0.5px solid #39a7ff;
-  color: 303345;
+  color: #303345;
 }
 
 .btn-primary.current {
