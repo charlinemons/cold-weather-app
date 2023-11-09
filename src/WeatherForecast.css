@@ -10,7 +10,8 @@ div#forecast {
 }
 
 .col-2.forecast-days.col-holder {
-  width: 13%;
+  width: 100%;
+  text-align: center;
 }
 .weather-forecast-date {
   font-size: 16px;
