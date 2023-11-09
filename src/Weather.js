@@ -1,23 +1,24 @@
 import React from "react";
+import axios from "axios";
 import "./Weather.css";
 
 export default function Weather() {
   return (
     <div className="weather">
       <form id="search-form">
-        <div class="row mobile">
-          <div class="col-md-8">
+        <div className="row mobile">
+          <div className="col-md-8">
             <input
-              class="placeholder"
+              className="placeholder"
               type="text"
               id="city-input"
               autocomplete="off"
               placeholder="Type a city"
             />
           </div>
-          <div class="col-md-4">
+          <div className="col-md-4">
             <input
-              class="btn-primary col-md-2 submit"
+              className="btn-primary col-md-2 submit"
               type="submit"
               value="Search"
             />
@@ -25,33 +26,33 @@ export default function Weather() {
         </div>
       </form>
 
-      <div class="current-temp">
+      <div className="current-temp">
         <h1 id="city">Montreal</h1>
         <p class="description">
           <span id="date"></span>
           <br />
           <span id="condition"></span>
         </p>
-        <div class="row">
-          <div class="col-6">
-            <div class="d-flex weather-temperature">
+        <div className="row">
+          <div className="col-6">
+            <div className="d-flex weather-temperature">
               <img src="" alt="" id="icon" />
-              <div class="degree">
+              <div className="degree">
                 <strong id="temperature">13</strong>
-                <span class="units">°C | °F</span>
+                <span className="units">°C | °F</span>
               </div>
             </div>
           </div>
-          <div class="col-6">
-            <div class="details">
+          <div className="col-6">
+            <div className="details">
               <ul>
-                <li class="col-holder">
+                <li className="col-holder">
                   Humidity: <span id="humidity">12</span>%
                 </li>
-                <li class="col-holder">
+                <li className="col-holder">
                   Wind: <span id="wind"></span>12 km/h
                 </li>
-                <li class="col-holder">
+                <li className="col-holder">
                   Feels like: <span id="feels">12</span> °C
                 </li>
               </ul>
