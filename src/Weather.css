@@ -71,12 +71,8 @@
   gap: 20px;
 }
 
-.weather .current-icon {
-  font-weight: 700;
-  font-size: 85px;
-  line-height: 52px;
-  color: #fbca1c;
-  padding: 0;
+span.icon {
+  margin: 10px;
 }
 
 .block {

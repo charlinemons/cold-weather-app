@@ -15,7 +15,9 @@ export default function CurrentWeather(props) {
         </p>
         <div className="row">
           <div className="col-6 d-flex">
-            <WeatherIcon code={props.data.icon} size={52} />
+            <span className="icon">
+              <WeatherIcon code={props.data.icon} size={52} />
+            </span>
             <div className="degree">
               <WeatherTemperature celsius={props.data.temperature} />
             </div>
